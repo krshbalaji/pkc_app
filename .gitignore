@@ -1,0 +1,15 @@
+﻿# Flutter & Dart
+.dart_tool/
+.packages
+.pub/
+build/
+.idea/
+android/.gradle/
+android/local.properties
+*.iml
+*.lock
+*.log
+*.tmp
+.DS_Store
+*.apk
+*.ipa

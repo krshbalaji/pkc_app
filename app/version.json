@@ -1,0 +1,4 @@
+﻿{
+  "version": "1.0.0",
+  "build_date": "' + (Get-Date -Format "yyyy-MM-dd HH:mm:ss") + '"
+}

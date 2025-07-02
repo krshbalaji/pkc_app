@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PKC App Installer</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>📱 Install PKC App</h1>
+    <p class="version" id="version">Checking latest version...</p>
+
+    <div class="qrcode" id="qrcode"></div>
+
+    <a id="downloadLink" href="#" class="button" download>
+      ⬇️ Download APK
+    </a>
+
+    <p id="changelog" class="changelog"></p>
+  </div>
+
+  <script src="qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -11,6 +11,8 @@
     <h1>📱 Install PKC App</h1>
     <p class="version" id="version">Checking latest version...</p>
 
+    <p id="warning" style="color: red; display: none;">⚠️ Failed to load version info.</p>
+
     <div class="qrcode" id="qrcode"></div>
 
     <a id="downloadLink" href="#" class="button" download>
@@ -21,6 +23,28 @@
   </div>
 
   <script src="qrcode.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    fetch('version.json')
+      .then(response => response.json())
+      .then(versionInfo => {
+        document.getElementById("version").innerText = `Latest Version: v${versionInfo.version}`;
+        document.getElementById("downloadLink").href = versionInfo.apk_url || "#";
+        document.getElementById("changelog").innerText = versionInfo.changelog || '';
+
+        // ✅ Hide warning if everything loaded successfully
+        document.getElementById("warning").style.display = "none";
+
+        // ✅ Generate QR code
+        new QRCode(document.getElementById("qrcode"), {
+          text: versionInfo.apk_url,
+          width: 150,
+          height: 150,
+        });
+      })
+      .catch(error => {
+        document.getElementById("version").innerText = "";
+        document.getElementById("warning").style.display = "block";
+      });
+  </script>
 </body>
 </html>
